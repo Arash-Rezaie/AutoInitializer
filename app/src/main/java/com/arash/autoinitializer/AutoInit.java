@@ -14,7 +14,7 @@ public @interface AutoInit {
      * when ever you want to initialize a resource process, pass something in
      * @return some class implementing AbstractInitializer interface
      */
-    Class<? extends AbstractInitializer> initializer() default EmptyInitializer.class;
+    Class<? extends Initializer> initializer() default EmptyInitializer.class;
 
     /**
      * any extra information which is necessary for initializer

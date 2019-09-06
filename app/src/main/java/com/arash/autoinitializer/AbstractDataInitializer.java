@@ -8,7 +8,7 @@ import java.util.HashMap;
  * Methods are defined package visible as I prefer to collect all my stuff here. By this way others see nothing else those I want
  */
 public abstract class AbstractDataInitializer {
-    private final static HashMap<Class<? extends AbstractInitializer>, AbstractInitializer> INITIALIZER_CONTAINER = new HashMap<>();
+    private final static HashMap<Class<? extends Initializer>, Initializer> INITIALIZER_CONTAINER = new HashMap<>();
     /**
      * received annotation
      */
@@ -26,7 +26,7 @@ public abstract class AbstractDataInitializer {
      * @throws Exception there is always possibility of failure while initializing. Simply, through exception to stop the operation
      */
     void init(Object container) throws Exception {
-        AbstractInitializer mInitializer = INITIALIZER_CONTAINER.get(this.annotationInfo.initializer());
+        Initializer mInitializer = INITIALIZER_CONTAINER.get(this.annotationInfo.initializer());
         if (mInitializer == null) {
             mInitializer = this.annotationInfo.initializer().newInstance();
             INITIALIZER_CONTAINER.put(this.annotationInfo.initializer(), mInitializer);

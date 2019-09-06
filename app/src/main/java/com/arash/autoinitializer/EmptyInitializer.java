@@ -2,9 +2,10 @@ package com.arash.autoinitializer;
 
 import java.lang.reflect.Field;
 
-public final class EmptyInitializer extends AbstractInitializer {
+public final class EmptyInitializer implements Initializer {
+
     @Override
-    void init(Object obj, Field field, String extraInfo) {
+    public void init(Object containerObj, Field targetField, String initInfo) throws Exception {
 
     }
 }

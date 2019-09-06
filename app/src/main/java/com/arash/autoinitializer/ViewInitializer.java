@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment;
 
 import java.lang.reflect.Field;
 
-public class ViewInitializer extends AbstractInitializer {
+public class ViewInitializer implements Initializer {
+
     @Override
-    void init(Object obj, Field field, String initInfo) throws Exception {
-        field.set(obj,findView(obj,Integer.valueOf(initInfo)));
+    public void init(Object containerObj, Field targetField, String initInfo) throws Exception {
+        targetField.set(containerObj, findView(containerObj, Integer.valueOf(initInfo)));
     }
 
     private View findView(Object obj, int initInfo) throws Exception {
