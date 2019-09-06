@@ -80,6 +80,43 @@ store() method pushes the mentioned object into a session. On Restroe(), all ann
 __Do not forget to clear cache when your class is going to be finished.__
 
 ### More customization
-There is a class called AbstractInitializer. By extending this class you can make your own initializer. This can be adopted to any kind of data type.
+There is an interface called Initializer. By implementing this interface you can make your own initializer. This can be adopted to any kind of data type.
+```java
 
-Restore() method copies old value of the target object into the new one, If you have a custome view, then there is no copy operation suitable for you. You can extend InitializerFactory class and pass it to AutoInitHandler once when ever you like. When it comes to initialization, your initializer class will be triggered and initInfo (defined by annotation) will be passed over, then target filled will be initiated as you want.
+import java.lang.reflect.Field;
+
+public class CustomInitializer implements Initializer {
+
+    @Override
+    public void init(Object containerObj, Field targetField, String initInfo) throws Exception {
+        // initInfo is what you have set in annotation
+        // containerObj is the class which contains the targetField
+
+        // Todo set a value to targetField here
+    }
+}
+
+```
+Restore() method copies old value of the target object into the new one, If you have a custome view, then there is no copy operation suitable for you. You can extend InitFactory class and pass it to AutoInitHandler once when ever you like. When it comes to initialization, your initializer class will be triggered and initInfo (defined by annotation) will be passed over, then target field will be initiated as you want.
+```java
+
+import java.lang.reflect.Field;
+
+public class CustomFactory extends InitFactory {
+
+    @Override
+    public AbstractDataInitializer getInitializer(Field field) {
+        Class type = field.getType();
+        if (CustomView.class.isAssignableFrom(type)) {
+            return new AbstractDataInitializer(field) {
+                @Override
+                void copy(Object srcContainer, Object destContainer, Field field) throws Exception {
+                    // Todo copy field value from srcContainer to destContainer. Throw an exception if needed
+                }
+            };
+        }
+        return super.getInitializer(field);
+    }
+}
+
+```
