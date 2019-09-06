@@ -3,7 +3,9 @@ This module enables you to initialize a field easily. Also, it delivers values t
 
 I hate to write 'findViewById(R.id....)' down repeatedly. It becomes worse when I have to apply my theme to a view every time instead of extending a class. If you think it is not disgusting enough,  
 then add onSaveInstance and onRestore mechanism too.
-Even more!, It seems that the class does not stop growing. :confounded:
+Even more!...
+
+It seems that the class does not stop growing. :confounded:
 
 So I wrote this module to ease the process :relieved: :smirk:
 
