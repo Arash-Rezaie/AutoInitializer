@@ -100,7 +100,7 @@ public class CustomInitializer implements Initializer {
 }
 
 ```
-Restore() method copies old value of the target object into the new one, If you have a custome view, then there is no copy operation suitable for you. You can extend InitFactory class and pass it to AutoInitHandler once when ever you like. When it comes to initialization, your initializer class will be triggered and initInfo (defined by annotation) will be passed over, then target field will be initiated as you want.
+Restore() method copies old value of the target object into the new one, If you have a custom view, then there is no copy operation suitable for you. You can extend InitFactory class and pass it to AutoInitHandler once when ever you like. When it comes to initialization, your initializer class will be triggered and initInfo (defined by annotation) will be passed over, then target field will be initiated as you want.
 ```java
 
 import java.lang.reflect.Field;
