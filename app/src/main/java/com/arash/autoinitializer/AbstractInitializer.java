@@ -12,5 +12,5 @@ public abstract class AbstractInitializer {
     public AbstractInitializer() {
     }
 
-    abstract void init(Object obj, Field field, String initInfo) throws Exception;
+    abstract void init(Object containerObj, Field targetField, String initInfo) throws Exception;
 }
