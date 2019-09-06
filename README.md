@@ -82,4 +82,4 @@ __Do not forget to clear cache when your class is going to be finished.__
 ### More customization
 There is a class called AbstractInitializer. By extending this class you can make your own initializer. This can be adopted to any kind of data type.
 
-Restore() method copies old value of the target object into the new one, If you have a custome view, then there is no copy operation suitable for you. You can extend InitializerFactory class and pass it to AutoInitHnadler once when ever you like.
+Restore() method copies old value of the target object into the new one, If you have a custome view, then there is no copy operation suitable for you. You can extend InitializerFactory class and pass it to AutoInitHandler once when ever you like. When it comes to initialization, your initializer class will be triggered and initInfo (defined by annotation) will be passed over, then target filled will be initiated as you want.
