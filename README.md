@@ -52,7 +52,7 @@ so we can pass view initializer and view id via annotation.
 3.Now, we have to invoke init method:
 ```java
 
-AutoInitHandler.init(container class); // usually it is 'this'
+AutoInitHandler.init(container class); // usually the parameter is 'this'
 
 ```
 If you are willing to save data, memorize parameter in annotation must be set true. Then call store and restore methods.
@@ -83,7 +83,7 @@ store() method pushes the mentioned object into a session. On Restroe(), all ann
 __Do not forget to clear cache when your class is going to be finished.__
 
 ### More customization
-There is an interface called Initializer. By implementing this interface you can make your own initializer. This can be adopted to any kind of data type.
+There is an interface called Initializer. By implementing this interface you can make your own initializer. This can be adapted to any kind of data type.
 ```java
 
 import java.lang.reflect.Field;
