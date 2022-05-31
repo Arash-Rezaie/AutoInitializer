@@ -1,3 +1,5 @@
+# This is api is deprecated, please hire BaseModule instead.
+
 # AutoInitializer
 This module enables you to initialize a field easily. Also, it delivers values to new class instance too.
 
